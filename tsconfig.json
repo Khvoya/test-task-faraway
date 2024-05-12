@@ -1,34 +1,25 @@
 {
-    "compilerOptions": {
-      "lib": [
-        "es5",
-        "es6",
-      ],
-      "skipLibCheck": true,
-      "strict": true,
-      "moduleResolution": "node",
-      "resolveJsonModule": true,
-      "esModuleInterop": true,
-      "typeRoots": [
-        "node_modules/@types"
-      ],
-      "types": [
-        "node",
-      ],
-      "outDir": "build",
-      "target": "es2019",
-    },
-    "include": [
-      "src/**/*"
-    ],
-    "exclude": [
-      "**/build/**",
-      "**/coverage/**",
-      "**/dist/**",
-      "**/node_modules/**",
-      "node_modules",
-      "./node_modules",
-      "./node_modules/*",
-      "./node_modules/@types/node/**"
-    ]
-  }
+  "compilerOptions": {
+    "lib": ["es5", "es6"],
+    "skipLibCheck": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["node"],
+    "outDir": "build",
+    "target": "es2019"
+  },
+  "include": ["./"],
+  "exclude": [
+    "**/build/**",
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "node_modules",
+    "./node_modules",
+    "./node_modules/*",
+    "./node_modules/@types/node/**"
+  ]
+}

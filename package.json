@@ -6,7 +6,6 @@
   "license": "ISC",
   "dependencies": {
     "@synthetixio/synpress": "3.5.1",
-    "dotenv": "16.0.3",
     "playwright": "1.32.2",
     "playwright-core": "1.32.2"
   },
@@ -22,9 +21,9 @@
   },
   "scripts": {
     "list:check": "eslint src",
-    "lint:fix": "eslint src --fix",
-    "lint:ci": "eslint src --quiet",
-    "tsc": "tsc --noEmit",
+    "lint:fix": "eslint ./ --fix",
+    "lint:ci": "eslint ./ --quiet",
+    "tsc": "tsc ./ --noEmit",
     "test": "npx playwright test",
     "prettier": "npx prettier . --write"
   }

@@ -4,7 +4,6 @@ import { initialSetup } from '@synthetixio/synpress/commands/metamask';
 import { prepareMetamask } from '@synthetixio/synpress/helpers';
 import * as metamask from '@synthetixio/synpress/commands/metamask';
 import { chromium, BrowserContext } from '@playwright/test';
-import { Helpers } from 'utils';
 import { mainFixtures } from './fixtures';
 
 type TestFixtures = {
@@ -13,8 +12,6 @@ type TestFixtures = {
   context: BrowserContext;
   metamask: typeof metamask;
 
-  // Utils
-  helpers: Helpers;
 };
 
 const test = mainFixtures.extend<TestFixtures>({
@@ -49,8 +46,8 @@ const test = mainFixtures.extend<TestFixtures>({
     // setup metamask
     await initialSetup(chromium, {
       secretWordsOrPrivateKey: process.env.SEED_PHRASE_OR_PRIVATE_KEY,
-      password: '12345678',
-      network: "sepolia",
+      password: '99999999',
+      network: 'sepolia',
       enableAdvancedSettings: true,
     });
     await use(context);
