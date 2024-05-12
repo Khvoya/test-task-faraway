@@ -1,14 +1,14 @@
 import { test as base} from "@playwright/test";
 import { MainPage } from "../src/pages/main-page";
 
-export const fixtures = base.extend<{
+export const mainFixtures = base.extend<{
   goToMainPage: void;
   mainPage: MainPage;
   loginByEmail: void;
 }>({
 
   mainPage: async ({page, baseURL}, use) => {
-    const mainPage = new MainPage(page, baseURL)
+    const mainPage = new MainPage(page, baseURL as string)
     await use(mainPage);
   },
 
@@ -28,9 +28,4 @@ export const fixtures = base.extend<{
     use()
   },
 });
-
-
-const test = fixtures.extend<{}>({});
-
-export default test;
  

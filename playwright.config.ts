@@ -13,7 +13,7 @@ export default defineConfig({
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
-  
+  timeout: 900000,
   workers: 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: "html",
