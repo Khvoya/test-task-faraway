@@ -1,0 +1,20 @@
+{
+  "name": "test-task-faraway",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "test": "npx playwright test",
+    "prettier": "npx prettier . --write"
+  },
+  "author": "Khvoya",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.1.0",
+    "@playwright/test": "^1.39.0",
+    "@synthetixio/synpress": "^3.7.2-beta.10",
+    "@types/node": "^20.8.6",
+    "playwright": "1.39.0",
+    "prettier": "3.0.3",
+    "typescript": "5.2.2"
+  }
+}
