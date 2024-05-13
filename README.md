@@ -3,6 +3,7 @@
 This repo is example of tech task for Faraway company using Typescript Playwright and Synpress
 
 ## Installation
+
 Install packages
 
 ```bash
@@ -27,8 +28,8 @@ npm run test
 npx playwright show-report
 ```
 
-
 ## Task:
+
 Create a test automation framework and develop E2E tests for test cases
 Write the GitHub Actions pipeline to run the tests
 
@@ -42,4 +43,3 @@ Run the CI pipeline with tests at least once
 Add a README file to the repo with a description of your solution and instructions on how to run it
 Use code formatting tool (ESLint or/and Prettier) with default configs
 Write a short cover letter to accompany your solution. Indicate how long it took you to complete your solution. Share what challenges you faced or what you found interesting
-

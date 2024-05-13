@@ -10,11 +10,9 @@ export class AuthPage {
   constructor(root: Page) {
     this.root = root;
     this.emailInput = this.root.getByTestId('email-form-email-input');
-    this.verifyCodeInput = this.root.getByTestId(
-      'verify-email-form-code-input',
-    );
+    this.verifyCodeInput = this.root.getByTestId('verify-email-form-code-input');
     this.submitButton = this.root.getByTestId('email-form-submit-button');
-    this.loggedLink = this.root.getByTestId('log-in-as-link')
+    this.loggedLink = this.root.getByTestId('log-in-as-link');
   }
 
   async fillEmail(email: string): Promise<void> {

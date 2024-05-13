@@ -30,7 +30,7 @@ export class MainPage {
     await this.connectInNewTabButton.click();
     const newTabContext = await newTabPromise;
     const authPage = new AuthPage(newTabContext);
-    await authPage.root.waitForLoadState("networkidle")
+    await authPage.root.waitForLoadState('networkidle');
     return authPage;
   }
 

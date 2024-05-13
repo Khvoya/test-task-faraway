@@ -23,10 +23,10 @@ export const mainFixtures = base.extend<{
     await authPage.fillEmail(email);
     await authPage.submitEmail();
     await authPage.fillVerifyCode(verifyCode);
-    await authPage.root.waitForEvent('close')
+    await authPage.root.waitForEvent('close');
     authPage = await mainPage.openAuthPageInNewTabByConnect();
-    await authPage.loggedLink.click()
-    await mainPage.root.reload({waitUntil: "networkidle"})
+    await authPage.loggedLink.click();
+    await mainPage.root.reload({ waitUntil: 'networkidle' });
     await use();
   },
 });
