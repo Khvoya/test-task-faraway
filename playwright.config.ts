@@ -1,4 +1,7 @@
 import { defineConfig } from '@playwright/test'
+import { config } from 'dotenv';
+
+config();
 
 /**
  * Read environment variables from file.
@@ -14,12 +17,12 @@ export default defineConfig({
   /* Run tests in files in parallel */
   fullyParallel: true,
   timeout: 900000,
-  workers: 1,
+  workers: 2,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    headless: true,
+    headless: false,
     /* Base URL to use in actions like `await page.goto('/')`. */
     baseURL: 'https://sandbox-platform.faraway.com/',
 

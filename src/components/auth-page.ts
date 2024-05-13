@@ -1,20 +1,20 @@
-import { Locator, FrameLocator } from '@playwright/test';
+import { Locator, Page } from '@playwright/test';
 
-export class AuthModal {
-  readonly root: Locator;
-  readonly frame: FrameLocator;
+export class AuthPage {
+  readonly root: Page;
   readonly emailInput: Locator;
   readonly verifyCodeInput: Locator;
   readonly submitButton: Locator;
+  readonly loggedLink: Locator;
 
-  constructor(root: Locator) {
+  constructor(root: Page) {
     this.root = root;
-    this.frame = root.frameLocator('#faraway-connect-frame');
-    this.emailInput = this.frame.getByTestId('email-form-email-input');
-    this.verifyCodeInput = this.frame.getByTestId(
+    this.emailInput = this.root.getByTestId('email-form-email-input');
+    this.verifyCodeInput = this.root.getByTestId(
       'verify-email-form-code-input',
     );
-    this.submitButton = this.frame.getByTestId('email-form-submit-button');
+    this.submitButton = this.root.getByTestId('email-form-submit-button');
+    this.loggedLink = this.root.getByTestId('log-in-as-link')
   }
 
   async fillEmail(email: string): Promise<void> {

@@ -7,16 +7,18 @@ import { chromium, BrowserContext } from '@playwright/test';
 import { mainFixtures } from './fixtures';
 
 type TestFixtures = {
-
-  // Context
+  metamaskSetup: boolean;
   context: BrowserContext;
   metamask: typeof metamask;
 
 };
 
 const test = mainFixtures.extend<TestFixtures>({
-  context: async ({}, use) => {
-    // required for synpress
+  metamaskSetup: true,
+  context: async ({metamaskSetup}, use) => {
+    let context: BrowserContext;
+    if (metamaskSetup) {
+      // required for synpress
     // eslint-disable-next-line @typescript-eslint/no-use-before-define
     global.expect = expect;
     // download metamask
@@ -36,13 +38,14 @@ const test = mainFixtures.extend<TestFixtures>({
       browserArgs.push('--headless=new');
     }
     // launch browser
-    const context = await chromium.launchPersistentContext('', {
+    context = await chromium.launchPersistentContext('', {
       headless: false,
       args: browserArgs,
     });
       // wait for metamask
     await context.pages()[0].waitForTimeout(3000);
     await context.pages()[0].close();
+    
     // setup metamask
     await initialSetup(chromium, {
       secretWordsOrPrivateKey: process.env.SEED_PHRASE_OR_PRIVATE_KEY,
@@ -50,6 +53,9 @@ const test = mainFixtures.extend<TestFixtures>({
       network: 'sepolia',
       enableAdvancedSettings: true,
     });
+    } else {
+      context = await chromium.launchPersistentContext("")
+    }
     await use(context);
     await context.close();
   },

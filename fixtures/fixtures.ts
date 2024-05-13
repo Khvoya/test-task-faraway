@@ -19,12 +19,14 @@ export const mainFixtures = base.extend<{
   loginByEmail: async ({ mainPage, goToMainPage }, use) => {
     const email = 'ta.test.assignment@faraway.com';
     const verifyCode = '378934';
-    await mainPage.openAuthModalByConnect();
-    await mainPage.authModal.fillEmail(email);
-    await mainPage.authModal.submitEmail();
-    await mainPage.authModal.fillVerifyCode(verifyCode);
-    await mainPage.authModal.root.waitFor({ state: 'hidden' });
-    await mainPage.root.waitForLoadState('networkidle');
+    let authPage = await mainPage.openAuthPageInNewTabByConnect();
+    await authPage.fillEmail(email);
+    await authPage.submitEmail();
+    await authPage.fillVerifyCode(verifyCode);
+    await authPage.root.waitForEvent('close')
+    authPage = await mainPage.openAuthPageInNewTabByConnect();
+    await authPage.loggedLink.click()
+    await mainPage.root.reload({waitUntil: "networkidle"})
     await use();
   },
 });
